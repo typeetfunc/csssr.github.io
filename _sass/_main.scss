@@ -148,6 +148,10 @@ table {
   margin: 0;
 }
 
+.post {
+  font-family: 'Proxima Nova Regular', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
 .posts .post {
   margin-bottom: 0.75em;
   padding-bottom: .375em;
@@ -269,6 +273,10 @@ abbr {
   cursor: help;
 }
 
+b, strong {
+  font-weight: 500;
+}
+
 pre, code {
   font-family: monospace;
 }
@@ -324,7 +332,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Proxima Nova Regular', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 900;
   line-height: 1.2;
   margin: 1em 0 0.5em;
@@ -388,7 +396,7 @@ h6,
   .p,
   p,
   li {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     line-height: 1.8;
   }
 
@@ -426,7 +434,7 @@ h6,
 
   .h1,
   h1 {
-    font-size: 2.827rem;
+    font-size: 2.0rem;
   }
 
   .h2,
