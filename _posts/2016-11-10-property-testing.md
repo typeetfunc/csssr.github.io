@@ -20,7 +20,7 @@ summary: Пробуем искать и проверять свойства пр
 
 ### Простой пример
 
-Давайте посмотрим сначала на пример взятый из базовой арифметики, а потом перейдем к более практической ситуации. Рассмотрим обыкновенное сложение. Как я уже упоминал сложение обладает многими свойствами. К примеру - сумма двух положительных чисел всегда больше каждого из слагаемых.
+Давайте посмотрим сначала на пример взятый из базовой арифметики, а потом перейдем к более практической ситуации. Рассмотрим обыкновенное сложение. Как я уже упоминал сложение обладает многими свойствами. К примеру - сумма двух неотрицательных чисел всегда больше каждого из слагаемых.
 
 То есть: для любых `a` и `b` больших или равных нулю справедливо `a + b >= a && a + b >= b`. На Javascript данное свойство можно записать в качестве функции:
 
@@ -128,7 +128,7 @@ function convertTo(structForFrontend) {
 ```javascript
 function isRevertable(structFromBackend) {
   var structForFrontend = convertFrom(structFromBackend);
-  var structForBackend = convertTo(structForFrontend)
+  var structForBackend = convertTo(structForFrontend);
 
   expect(structFromBackend).toEqual(structForBackend);
 }
@@ -370,7 +370,7 @@ Note: дальше будет много кода написаного на ко
 ```javascript
 function isSameShape(structFromBackend) {
   var structForFrontend = convertFrom(structFromBackend);
-  var structForBackend = convertTo(structForFrontend)
+  var structForBackend = convertTo(structForFrontend);
 
   expect(checkFamilyStruct(structForBackend)).toBe(true);
 }
