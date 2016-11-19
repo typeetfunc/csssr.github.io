@@ -540,7 +540,7 @@ describe('convertFrom and convertTo properties', () => {
 
 ### Полезные ссылки
 
- - <a target="_blank" href="http://fsharpforfunandprofit.com/posts/property-based-testing-2/">Choosing properties for property-based testing</a> - подробно разбираются множество практических кейсов для property-based тестирования(с примерами). Must have для тех кто хочет использовать данный подход на практике.
+ - <a target="_blank" href="http://fsharpforfunandprofit.com/posts/property-based-testing-2/">Choosing properties for property-based testing</a> - подробно разбираются множество практических кейсов для property-based тестирования(с примерами и даже картинками). Must have для тех кто хочет использовать данный подход на практике.
  - <a target="_blank" href="http://jsverify.github.io/">JSVerify</a> - еще одна реализация данного подхода на чистом Javascript. По возможности рекомендую использовать именно ее - так как ее намного проще отлаживать в отличии от `testcheck-js`(стектрейсы не уводят в бесконечность `ClojureScript` рантайма). Имеет большой набор встроенных генераторов и поддержку асинхронных свойств.
  - <a target="_blank" href="https://github.com/omcljs/om/wiki/Applying-Property-Based-Testing-to-User-Interfaces">Applying Property Based Testing to User Interfaces</a> - хорошая статья о реальном применении property-based тестов для тестирования UI(на примере работы со стейтом пользователя). Пример описан для библиотеки `Om`, но в целом те же практики можно использовать и для тестирования `Redux` приложений.
  - <a target="_blank" href="https://www.youtube.com/watch?v=E_at53wDH1w">Unikernel Full-Stack на Erlang</a> - веселый доклад про верификацию программ. Отвечает на вопрос: "А зачем это нужно на практике?"
