@@ -85,7 +85,7 @@ it('forall a, b - a + b >= a && a + b >= b', () => {
 ```
 Возникает вопрос: а надо было что-то писать или все уже написано до нас? Ответ - да, все уже написано.
 
-Данный подход называется property-based testing(а.к.a QuickCheck тесты, property тесты, генеративное тестирование) появился в <a target="_blank" href="http://www.eecs.northwestern.edu/~robby/courses/395-495-2009-fall/quick.pdf">haskell коммьюнити</a>. На сегодняшний день его реализации есть практически для всех языков, и конечно же для Javascript. В примерах я буду использовать встроенный в <a target="_blank" href="https://facebook.github.io/jest/">Jest</a> <a target="_blank" href="https://github.com/leebyron/testcheck-js">testcheck-js</a>, который на самом деле является биндингом к <a target="_blank" href="https://github.com/clojure/test.check">test.check написанному на ClojureScript</a>. Наш пример с его использованием запишется так:
+Данный подход называется property-based testing(а.к.a QuickCheck тесты, property тесты, генеративное тестирование) появился в <a target="_blank" href="http://www.eecs.northwestern.edu/~robby/courses/395-495-2009-fall/quick.pdf">haskell сообществе</a>. На сегодняшний день его реализации есть практически для всех языков, и конечно же для Javascript. В примерах я буду использовать встроенный в <a target="_blank" href="https://facebook.github.io/jest/">Jest</a> <a target="_blank" href="https://github.com/leebyron/testcheck-js">testcheck-js</a>, который на самом деле является биндингом к <a target="_blank" href="https://github.com/clojure/test.check">test.check написанному на ClojureScript</a>. Наш пример с его использованием запишется так:
 
 ```javascript
 var testcheck = require('testcheck');
