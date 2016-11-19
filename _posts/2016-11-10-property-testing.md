@@ -549,4 +549,4 @@ describe('convertFrom and convertTo properties', () => {
 
 Спасибо за внимание!
 
-Возникшие вопросы можно задавать в комментариях или мне в твиттере - <a target="_blank" href="https://twitter.com/bracketsarrows">@bracketsarrows</a>
+Возникшие вопросы или мысли по поводу данного подхода можно оставлять в комментариях или в твиттере - <a target="_blank" href="https://twitter.com/bracketsarrows">@bracketsarrows</a>
