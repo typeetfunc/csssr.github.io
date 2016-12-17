@@ -282,10 +282,14 @@ pre, code {
 }
 
 code {
-  //padding: 3px 8px; ???????
+  padding: 3px 0px;
   color: #666;
   background-color: #eee;
   border-radius: 4px;
+}
+
+code.highlighter-rouge {
+  padding: 3px 8px;
 }
 
 pre code {
