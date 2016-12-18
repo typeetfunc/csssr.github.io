@@ -393,7 +393,7 @@ function patchDOM(patch: DOMPatch): Eff<{ write: DOM }, void> { ... }
 ```javascript
 printSum(list: Array): PrintedSumToScreenEffect
 ```
- - Затем определяем спецификации API уровнем ниже которая необходима чтобы из `Array` получить `PrintedSum`. Очевидно что нам необходимы две функции.
+ - Затем определяем спецификации API уровнем ниже которые необходимы чтобы из `Array` получить `PrintedSumToScreenEffect`. Очевидно что нам необходимы две функции.
 
 ```javascript
 sum(list: Array): number
