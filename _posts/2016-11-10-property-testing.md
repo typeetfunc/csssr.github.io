@@ -380,9 +380,9 @@ function isSameShape(structFromBackend) {
 
 Осталось только написать функцию `checkFamilyStruct`.
 
-Хм, а если подумать? Вспомните, ведь мы уже описывали структуру наших данных. В генераторе мы описали и типы и различные ограничения для нашей структуры(в `mapFamily`). Можем ли мы как то переиспользовать создание нашего генератора для проверки структуры результата? Скорее всего нет. Для этого понадобится анализировать внутреннюю структуру генератора, а она довольно непростая(так как он сам написан на `ClojureScript`).
+Хм, а если подумать? Вспомните, ведь мы уже описывали структуру наших данных. В генераторе мы описали и типы и различные ограничения для нашей структуры(в `mapFamily`). Можем ли мы как то переиспользовать создание нашего генератора для проверки структуры результата? Скорее всего нет. Для этого понадобится анализировать внутреннюю структуру генератора, а она довольно непростая(так как он сам написан на ClojureScript).
 
-Однако мы можем сделать то, что так любят делать программисты - придумать новое API определения структуры данных, при помощи которого мы сможем получать и функцию-генератор и функцию-валидатор. И давайте сделаем его похожим на <a target="_blank" href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">React.PropTypes</a> - ведь все мы так любим `React`.
+Однако мы можем сделать то, что так любят делать программисты - придумать новое API определения структуры данных, при помощи которого мы сможем получать и функцию-генератор и функцию-валидатор. И давайте сделаем его похожим на <a target="_blank" href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">React.PropTypes</a> - ведь все мы так любим React.
 
 Единственным новым методом будет `.invariant`, который будет отвечать за преобразование генерируемой последовательности(вспоминаем метод `.map`).
 
@@ -404,7 +404,7 @@ const makeFamilySpec = spec => spec.shape({
   )
 }).invariant(mapFamily);
 ```
-Соответственно теперь нам надо определить объект `spec` для валидатора и для генератора. Для валидации я буду использовать <a target="_blank" href="https://facebook.github.io/jest/docs/api.html#expectvalue)">expect</a> из `jest` просто потому, что это единственное, что было под рукой. Очевидно, что для валидации можно использовать любую библиотеку для проверки данных, да и сам формат описания структуры может быть любым.
+Соответственно теперь нам надо определить объект `spec` для валидатора и для генератора. Для валидации я буду использовать <a target="_blank" href="https://facebook.github.io/jest/docs/api.html#expectvalue)">expect</a> из Jest просто потому, что это единственное, что было под рукой. Очевидно, что для валидации можно использовать любую библиотеку для проверки данных, да и сам формат описания структуры может быть любым.
 
 Для начала определим общую структуру API для валидатора:
 
@@ -514,7 +514,7 @@ describe('convertFrom and convertTo properties', () => {
 Вообще идея иметь одно описание данных и по нему получать и валидаторы и генераторы придумана конечно же не мной.
 Именно на этом базируется довольно новая технология - <a target="_blank" href="http://clojure.org/about/spec">clojure.spec</a>, которая в свою очередь черпала вдохновение из <a target="_blank" href="http://docs.racket-lang.org/guide/contracts.html">системы контрактов Racket</a>.
 
-Еще дальше идет проект <a target="_blank" href="http://frenchy64.github.io/2016/08/07/automatic-annotations.html">Automatic annotations</a> для все той же `Clojure` - ребята предлагают динамически анализировать юнит-тесты, вычислять по ним возможные ограничения на данные и далее использовать их как для compile-time проверок при помощи  <a target="_blank" href="https://github.com/clojure/core.typed">core.typed</a>(система опциональной типизации для Clojure), так и для run-time проверок при помощи `clojure.spec`.
+Еще дальше идет проект <a target="_blank" href="http://frenchy64.github.io/2016/08/07/automatic-annotations.html">Automatic annotations</a> для все той же Clojure - ребята предлагают динамически анализировать юнит-тесты, вычислять по ним возможные ограничения на данные и далее использовать их как для compile-time проверок при помощи  <a target="_blank" href="https://github.com/clojure/core.typed">core.typed</a>(система опциональной типизации для Clojure), так и для run-time проверок при помощи `clojure.spec`.
 
 С другой стороны в Haskell сообществе существуют подходы, при которых тесты проверяющие свойства генерируются по типам в программе. <a target="_blank" href="https://www.youtube.com/watch?v=y_auT62ycVc">Вот интересный доклад на эту тему</a>.
 
@@ -570,7 +570,7 @@ function convertFrom(family: familySpec): familyConverted
 function convertTo(familyConverted: familyConverted): familySpec
 ```
 
-Однако, в системе типов TypeScript мы никак не можем указать инвариант `mapFamily` который проверяет структуру, что очень сильно снижает полезность нашей спецификации. Но это только частные проблемы TypeScript и других подобных систем типов. Существуют `refinement` и `dependant` типы которые позволяют _статически_ доказывать соответствие значения некотрому предикату - простой пример это тип "натуральные числа":
+Однако, в системе типов TypeScript мы никак не можем указать инвариант `mapFamily` который проверяет структуру, что очень сильно снижает полезность нашей спецификации. Но это только частные проблемы TypeScript и других подобных систем типов. Существуют refinement и dependant типы которые позволяют _статически_ доказывать соответствие значения некотрому предикату - простой пример это тип "натуральные числа":
 
 ```javascript
 type nat = {v : number | 0 ≤ v }
@@ -617,9 +617,9 @@ type nat = {v : number | 0 ≤ v }
 ### Полезные ссылки
 
  - <a target="_blank" href="http://fsharpforfunandprofit.com/posts/property-based-testing-2/">Choosing properties for property-based testing</a> - подробно разбираются множество практических кейсов для property-based тестирования(с примерами и даже картинками). Обязательна к прочтению для тех, кто хочет использовать данный подход на практике.
- - <a target="_blank" href="http://jsverify.github.io/">JSVerify</a> - еще одна реализация данного подхода на чистом Javascript. По возможности рекомендую использовать именно ее - так как ее намного проще отлаживать в отличии от `testcheck-js`(стектрейсы не уводят в бесконечность `ClojureScript` рантайма). Имеет большой набор встроенных генераторов и поддержку асинхронных свойств.
- - <a target="_blank" href="https://github.com/prayerslayer/js.spec">JS.spec</a> - биндинги к `clojure.spec` для `js`. Пока очень сырые и не поддерживают из коробки генерацию по `spec`, только валидацию.
- - <a target="_blank" href="https://github.com/omcljs/om/wiki/Applying-Property-Based-Testing-to-User-Interfaces">Applying Property Based Testing to User Interfaces</a> - хорошая статья о реальном применении property-based тестов для тестирования UI(на примере работы со стейтом пользователя). Пример описан для библиотеки `Om`, но в целом те же практики можно использовать и для тестирования `Redux` приложений.
+ - <a target="_blank" href="http://jsverify.github.io/">JSVerify</a> - еще одна реализация данного подхода на чистом Javascript. По возможности рекомендую использовать именно ее - так как ее намного проще отлаживать в отличии от `testcheck-js`(стектрейсы не уводят в бесконечность ClojureScript рантайма). Имеет большой набор встроенных генераторов и поддержку асинхронных свойств.
+ - <a target="_blank" href="https://github.com/prayerslayer/js.spec">JS.spec</a> - биндинги к `clojure.spec` для JS. Пока очень сырые и не поддерживают из коробки генерацию по спецификациям, только валидацию.
+ - <a target="_blank" href="https://github.com/omcljs/om/wiki/Applying-Property-Based-Testing-to-User-Interfaces">Applying Property Based Testing to User Interfaces</a> - хорошая статья о реальном применении property-based тестов для тестирования UI(на примере работы со стейтом пользователя). Пример описан для библиотеки Om, но в целом те же практики можно использовать и для тестирования Redux приложений.
  - <a target="_blank" href="https://www.youtube.com/watch?v=E_at53wDH1w">Unikernel Full-Stack на Erlang</a> - веселый доклад про верификацию программ. Отвечает на вопрос: "А зачем это нужно на практике?"
  - <a target="_blank" href="https://arxiv.org/pdf/1604.02480v1.pdf">Refinement Types for TypeScript</a> - интересный пейпер в рамках, которого создан <a target="_blank" href="https://github.com/UCSD-PL/refscript">верификатор программ на TypeScript</a> на основе refinement типов
 - <a target="_blank" href="https://www.youtube.com/watch?v=5lWIG3XQ2-A">LiquidHaskell: изящные типы.</a> - доклад просто и понятно объясняющий refinement типы
